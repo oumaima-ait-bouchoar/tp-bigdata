@@ -15,14 +15,14 @@ service apache2ctl restart
 
 # php
 
-apt install -y php php-curl php-xml php-mbstring php-intl php-zip libapache2-mod-php php-mysql php-mongodb 
+apt install -y php libapache2-mod-php php-mongodb
 service apache2ctl restart
 
 # composer 
 wget https://getcomposer.org/download/latest-stable/composer.phar
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
-
+apt instal -y php-zip
 
 # symfony requirements
 apt install acl -y
