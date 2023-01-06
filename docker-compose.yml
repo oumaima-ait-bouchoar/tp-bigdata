@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+    mongodb:
+        image: mongo:5.0
+        ports:
+            - "27017:27017"
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=zz3f3
+            - MONGO_INITDB_ROOT_PASSWORD=easyma
+    mongo-gui:
+        container_name: "mongo-gui"
+        image: ugleiton/mongo-gui
+        restart: always
+        ports:
+            - "4321:4321"
+        environment:
+            - MONGO_URL=mongodb://zz3f3:easyma@mongodb
+    php:
+        build: .
+        ports:
+           - 8080:80
+        volumes:
+           - ./www:/var/www/html/
+            
+
