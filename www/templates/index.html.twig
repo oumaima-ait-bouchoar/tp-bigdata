@@ -16,11 +16,13 @@
         <tr>
             <th>colonne 1</th>
             <th>colonne 2</th>
+            <th>actions</th>
         </tr>
         {% for document in list %}
         <tr>
             <td>{{ document.name }}</td>
             <td>contenu colonne 2</td>
+            <td><a href="get.php?id=1">voir</a>&nbsp;<a href="edit.php?id=1">éditer</a>&nbsp;<a href="delete.php?id=1">supprimer</a></td>
         </tr>
         {% endfor %}
     </table>
