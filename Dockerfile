@@ -8,6 +8,8 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 COPY ./lamp.sh lamp.sh
 
+COPY ./app.conf /tmp/app.conf
+
 RUN ./lamp.sh
 
 
