@@ -2,5 +2,10 @@
     "require": {
         "mongodb/mongodb": "^1.5",
         "twig/twig": "^3.5"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
     }
 }
