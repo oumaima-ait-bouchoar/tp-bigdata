@@ -10,7 +10,6 @@ services:
     mongo-gui:
         container_name: "mongo-gui"
         image: ugleiton/mongo-gui
-        restart: always
         ports:
             - "4321:4321"
         environment:

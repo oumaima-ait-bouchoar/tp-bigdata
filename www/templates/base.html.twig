@@ -2,12 +2,14 @@
 <html>
 <head>
     {% block head %}
-    <link rel="stylesheet" href="style.css"/>
-    <title>{% block title %}{% endblock %} - My Webpage</title>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <title>TP MongoDB - {% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
 <body>
-<div id="content">{% block content %}{% endblock %}</div>
+<div class="header"><img class="logo" src="/assets/media/logo_mongo.svg"></div>
+<div class="background"></div>
+<div id="content" class="content">{% block content %}{% endblock %}</div>
 <div id="footer">
     {% block footer %}
     &copy; Copyright 2023 by <a href="http://domain.invalid/">you</a>.
