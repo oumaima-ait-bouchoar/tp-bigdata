@@ -16,13 +16,12 @@ use Twig\Loader\FilesystemLoader;
 function getTwig(): Environment
 {
     // twig configuration
-    $loader = new FilesystemLoader('../templates');
-    return new Environment($loader);
+    return new Environment(new FilesystemLoader('../templates'));
 }
 
 function getMongoDbManager(): Database
 {
     $client = new MongoDB\Client("mongodb://{$_ENV['MDB_USER']}:{$_ENV['MDB_PASS']}@{$_ENV['MDB_SRV']}");
-    return $client->selectDatabase('test');
+    return $client->selectDatabase($_ENV['MDB_DB']);
 }
 
