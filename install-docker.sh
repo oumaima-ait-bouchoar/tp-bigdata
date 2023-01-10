@@ -27,10 +27,5 @@ sysctl -w vm.max_map_count=262144
 # set for redis
 sysctl vm.overcommit_memory=1
 
-
 # test docker
 docker run hello-world
-
-
-mkdir -p /home/lionel/docker/workspace/elasticsearch/synonyms
-mkdir -p /home/lionel/docker/workspace/bdd/db1
