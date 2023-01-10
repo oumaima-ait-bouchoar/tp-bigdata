@@ -21,7 +21,7 @@ function getTwig(): Environment
 
 function getMongoDbManager(): Database
 {
-    $client = new MongoDB\Client("mongodb://{$_ENV['MDB_USER']}:{$_ENV['MDB_PASS']}@{$_ENV['MDB_SRV']}");
+    $client = new MongoDB\Client("mongodb://{$_ENV['MDB_USER']}:{$_ENV['MDB_PASS']}@{$_ENV['MDB_SRV']}:{$_ENV['MDB_PORT']}");
     return $client->selectDatabase($_ENV['MDB_DB']);
 }
 
