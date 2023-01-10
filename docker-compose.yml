@@ -16,7 +16,8 @@ services:
         environment:
             - MONGO_URL=mongodb://zz3f3:easyma@mongodb
     php:
-        build: .
+        container_name: "php"
+        image: citizen63000/ubuntu-php-mongo:1.0
         ports:
            - 8080:80
         volumes:
