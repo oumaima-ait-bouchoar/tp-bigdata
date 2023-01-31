@@ -70,3 +70,13 @@ services:
             - K6_OUT=influxdb=http://influxdb:8086/k6
         volumes:
             - ./k6:/scripts
+    elasticsearch:
+        image: elasticsearch:8.6.0
+        container_name: elasticsearch
+        ports:
+            -   "9200:9200"
+        environment:
+            - discovery.type=single-node
+        volumes:
+            -   ./elasticsearch/synonyms:/usr/share/elasticsearch/config/synonyms
+
