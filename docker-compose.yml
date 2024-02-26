@@ -110,6 +110,10 @@ services:
             -   ./elasticsearch/synonyms:/usr/share/elasticsearch/config/synonyms
         networks:
             - local
+        ulimits:
+            memlock:
+                soft: 2621440
+                hard: 2621440
     tpmongo-kibana:
         image: docker.elastic.co/kibana/kibana:8.12.2
         container_name: tpmongo-kibana
