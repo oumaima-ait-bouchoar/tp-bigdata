@@ -105,15 +105,19 @@ services:
         container_name: tpmongo-elasticsearch
         ports:
             - "9200:9200"
-        environment: ['CLI_JAVA_OPTS=-Xms2g -Xmx2g','bootstrap.memory_lock=true','discovery.type=single-node','xpack.security.enabled=false', 'xpack.security.enrollment.enabled=false', 'http.cors.allow-origin=http://localhost:8180', 'http.cors.enabled=true']
+        environment: ['CLI_JAVA_OPTS=-Xms512m -Xmx512m','bootstrap.memory_lock=true','discovery.type=single-node','xpack.security.enabled=false', 'xpack.security.enrollment.enabled=false', 'http.cors.allow-origin=http://localhost:8180', 'http.cors.enabled=true']
         volumes:
             -   ./elasticsearch/synonyms:/usr/share/elasticsearch/config/synonyms
         networks:
             - local
-        ulimits:
-            memlock:
-                soft: 2621440
-                hard: 2621440
+        deploy:
+            resources:
+                limits:
+                    cpus: '1.0'
+                    memory: 2048M
+                reservations:
+                    cpus: '0.50'
+                    memory: 1024M
     tpmongo-kibana:
         image: docker.elastic.co/kibana/kibana:8.12.2
         container_name: tpmongo-kibana
