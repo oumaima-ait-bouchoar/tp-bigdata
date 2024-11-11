@@ -1,8 +1,8 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 ENTRYPOINT ["usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
-RUN apt update && apt dist-upgrade
+RUN apt update && apt dist-upgrade -y
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
@@ -28,4 +28,5 @@ RUN wget https://getcomposer.org/download/latest-stable/composer.phar
 RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
+WORKDIR /var/www/app
 

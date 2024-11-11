@@ -31,7 +31,7 @@ services:
             - local
     tpmongo-php:
         container_name: "tpmongo-php"
-        image: citizen63000/ubuntu-php-mongo:1.1
+        image: citizen63000/ubuntu-php-mongo:1.2
         depends_on:
             -   tpmongo-mongodb
         ports:
