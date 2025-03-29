@@ -1,7 +1,11 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Document ""{% endblock %}
+{% block title %}Document {{ entity.titre }}{% endblock %}
 {% block content %}
-    <p>&larr;&nbsp;<a href="/index.php">Retourner à la liste</a></p>
-    affichez le contenu d'un document de la liste
+    <p>&larr;&nbsp;<a href="/?search={{ search }}&page={{ page }}">Retourner à la liste</a></p>
+    <h2>Document Détails</h2>
+    <p><strong>Titre:</strong> {{ entity.titre }}</p>
+    <p><strong>Aureur:</strong> {{ entity.auteur }}</p>
+    <p><strong>Langue:</strong> {{ entity.langue }}</p>
+    <p><strong>Siecle:</strong> {{ entity.siecle }}</p>
 {% endblock %}

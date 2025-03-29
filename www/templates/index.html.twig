@@ -3,20 +3,46 @@
 {% block title %}Index{% endblock %}
 {% block content %}
 <h1>Liste des manuscrits de la bibliothèque du Patrimoine de Clermont Auvergne Métropole</h1>
+
+<form method="get" action="index.php">
+    <input type="text" name="search" value="{{ search }}" placeholder="Rechercher par titre ou auteur">
+    <button type="submit">Rechercher</button>
+</form>
+
 <table>
     <tr>
-        <th>Référence</th>
         <th>Titre</th>
-        <th>Auteur</th>
+        <th>auteur</th>
+        <th>langue</th>
         <th>Actions</th>
     </tr>
-    {% for document in list %}
+    {% for document in list %}-
     <tr>
-        <td>{{ document.name }}</td>
-        <td>{{ document.name }}</td>
-        <td>{{ document.name }}</td>
-        <td><a href="get.php?id=1">voir</a>&nbsp;/&nbsp;<a href="edit.php?id=1">éditer</a>&nbsp;/&nbsp;<a href="delete.php?id=1">supprimer</a></td>
+        <td>{{ document.titre }}</td>
+        <td>{{ document.auteur }}</td>
+        <td>{{ document.langue }}</td>
+        <td>
+            <a href="get.php?id={{ document._id }}{% if search %}&search={{ search }}{% endif %}{% if page %}&page={{ page }}{% endif %}">voir</a>
+            &nbsp;/&nbsp;
+            <a href="edit.php?id={{ document._id }}">éditer</a>
+            &nbsp;/&nbsp;
+            <a href="delete.php?id={{ document._id }}">supprimer</a>
+        </td>
     </tr>
     {% endfor %}
 </table>
+
+
+<div class="pagination">
+    {% if page > 1 %}
+        <a href="?page={{ page - 1 }}{% if search %}&search={{ search }}{% endif %}">Précédent</a>
+    {% endif %}
+
+    <span>Page {{ page }} sur {{ totalPages }}</span>
+
+    {% if page < totalPages %}
+        <a href="?page={{ page + 1 }}{% if search %}&search={{ search }}{% endif %}">Suivant</a>
+    {% endif %}
+</div>
+
 {% endblock %}
